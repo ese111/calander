@@ -1,8 +1,8 @@
 import java.util.*
 
-class Today {
+class MyCalendar {
 
-    fun today(calendar: Calendar){
+    fun today(calendar: Calendar): Calendar {
         val year = calendar.get(Calendar.YEAR)
         val mon = calendar.get(Calendar.MONTH)
         val day = calendar.get(Calendar.DAY_OF_MONTH)
@@ -10,8 +10,17 @@ class Today {
         val min = calendar.get(Calendar.MINUTE)
         val sec = calendar.get(Calendar.SECOND)
 
-        calendar.set(year,mon,day,hour,min,sec)
+        return calendar.set(year,mon,day,hour,min,sec)
+    }
 
+    fun stringToDate(string:String): Calendar {
+        val year = string.substring(0,3)
+        val month = string.substring(4,5)
+        val day = string.substring(6,7)
+        val calendar: Calendar
+        calendar.set(year,month,day)
+
+        return calendar
     }
 
 }
